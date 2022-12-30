@@ -1,18 +1,26 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { routing } from './app.routes';
+import { AuthCallbackComponent } from './auth-callback/auth-callback.component';
+import { AuthConfigModule } from './auth-config.module';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { HomeComponent } from './home/home.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 @NgModule({
+  imports: [BrowserModule, routing, HttpClientModule, AuthConfigModule],
   declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
+    AppComponent,
+    ForbiddenComponent,
+    HomeComponent,
+    NavigationComponent,
+    UnauthorizedComponent,
+    AuthCallbackComponent,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
